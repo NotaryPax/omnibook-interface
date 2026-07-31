@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head><title>AXI Submission</title></head>
+<body>
+    <div id="report-container"><div>Finding: Test Finding</div><button onclick='submitFinding("123")'>Approve & Payout</button></div>
+    <script>
+        function submitFinding(findingId) {
+            fetch('/api/bridge/submit', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({id: findingId, action: 'payout'})
+            }).then(r => alert('Submitted!'));
+        }
+    </script>
+</body>
+</html>
